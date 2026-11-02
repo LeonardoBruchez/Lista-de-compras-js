@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lista de compras</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles/index.css" />
+  </head>
+  <body>
+    <main>
+      <header class="desktop-only">
+        <div class="logo">
+          <img src="assets/title.svg" alt="" />
+          <h1>quicklist</h1>
+        </div>
+      </header>
+
+      <section>
+        <a href="#" class="back-link">&lt;- Voltar</a>
+        <h2>Compras da semana</h2>
+
+        <form method="post" id="shopping-list-form">
+          <div class="input-group">
+            <input
+              type="text"
+              id="addNewItem"
+              name="addNewItem"
+              class="input-text"
+              placeholder="Adicione um novo item"
+            />
+            <button type="submit" id="submit" class="btn-primary">
+              Adicionar item
+            </button>
+          </div>
+
+          <!--
+            Estrutura de cada item (só 4 elementos, nenhum atributo obrigatório além do type):
+            <label class="shopping-item">
+              <input type="checkbox" />
+              <span>Nome</span>
+              <button type="button"></button>
+            </label>
+          -->
+          <div id="buttons-wrapper" class="shopping-list">
+            <label class="shopping-item">
+              <input type="checkbox" />
+              <span>Pão de forma</span>
+              <button type="button" aria-label="Remover item"></button>
+            </label>
+
+            <label class="shopping-item">
+              <input type="checkbox" />
+              <span>Café preto</span>
+              <button type="button" aria-label="Remover item"></button>
+            </label>
+
+            <label class="shopping-item">
+              <input type="checkbox" />
+              <span>Suco de laranja</span>
+              <button type="button" aria-label="Remover item"></button>
+            </label>
+
+            <label class="shopping-item">
+              <input type="checkbox" />
+              <span>Bolacha</span>
+              <button type="button" aria-label="Remover item"></button>
+            </label>
+          </div>
+        </form>
+
+        <div id="alertbox" class="alert" role="alert">
+          <img src="assets/icon.svg" alt="" />
+          <span>O item foi removido da lista</span>
+          <button type="button" class="alert-close" aria-label="Fechar aviso">
+            <img src="assets/X.svg" alt="" />
+          </button>
+        </div>
+      </section>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>

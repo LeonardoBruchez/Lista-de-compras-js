@@ -1,0 +1,168 @@
+main {
+  max-width: 390px;
+  width: 100%;
+  margin: auto;
+  padding-inline: 2rem;
+}
+
+section {
+  display: grid;
+  margin-top: 2.125rem;
+}
+
+.back-link {
+  text-decoration: none;
+  color: var(--color-brand);
+}
+
+h2 {
+  margin-block: 1.25rem 2.5rem;
+  font: 700 1.5rem/2rem var(--ff);
+}
+
+/* ---------- Formulário ---------- */
+.input-group {
+  display: grid;
+}
+
+.input-text {
+  width: 100%;
+  padding-block: 11px;
+  padding-inline: 18px 0;
+  border-radius: 12px;
+  outline: 2px solid var(--border-primary);
+  font: 400 1rem/1.4 var(--ff);
+
+  &:hover {
+    outline-color: var(--border-hover);
+  }
+
+  &:focus {
+    outline-color: var(--color-brand);
+  }
+}
+
+.btn-primary {
+  margin-block: 1rem 2.5rem;
+  padding-block: 0.75rem;
+  border-radius: 0.75rem;
+  background-color: var(--color-brand);
+  color: var(--always-white);
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--color-brand-hover);
+  }
+}
+
+/* ---------- Lista de itens ----------
+   Cada item precisa apenas de:
+   label.shopping-item > input[type=checkbox] + span + button */
+.shopping-list {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.shopping-item {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 12.5px 12px 12.5px 24px;
+  cursor: pointer;
+
+  /* Checkbox estilizado direto no input (sem span extra) */
+  & input[type="checkbox"] {
+    appearance: none;
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    background: url("../assets/checkbox-default.svg") center / contain no-repeat;
+    cursor: pointer;
+
+    &:checked {
+      background-image: url("../assets/checkbox-checked.svg");
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--color-brand);
+      outline-offset: 2px;
+      border-radius: 6px;
+    }
+  }
+
+  &:hover input[type="checkbox"]:not(:checked) {
+    background-image: url("../assets/checkbox-hover.svg");
+  }
+
+  & span {
+    color: var(--content-secondary);
+    font: 500 1rem/24px var(--ff);
+  }
+
+  /* Botão de remover: ícone vem do CSS (sem <img> dentro) */
+  & button {
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    margin-left: auto;
+    background: url("../assets/trash.svg") center / 20px no-repeat;
+    cursor: pointer;
+  }
+}
+
+/* ---------- Alerta ---------- */
+.alert {
+  display: none; /* trocar para flex para exibir */
+  align-items: center;
+  gap: 0.5rem;
+  height: 2.75rem;
+  margin-top: 2.2rem;
+  padding: 0.75rem;
+  border-radius: 0.75rem;
+  background-color: var(--color-danger);
+  color: var(--always-white);
+
+  & span {
+    margin-right: auto;
+  }
+}
+
+.alert-close {
+  display: flex;
+  cursor: pointer;
+}
+
+/* ---------- Desktop ---------- */
+@media (width >= 64rem) {
+  main {
+    max-width: 627px;
+    margin-top: 1.56rem;
+  }
+
+  .logo {
+    display: flex;
+    justify-content: center;
+    gap: 0.52rem;
+
+    & h1 {
+      font: 700 26.67px/40px var(--ff);
+    }
+  }
+
+  .input-group {
+    grid-template-columns: 71.93% 25.52%;
+    gap: 1rem;
+  }
+
+  .input-text {
+    height: 44px;
+  }
+
+  .btn-primary {
+    margin-block: 0;
+  }
+
+  .shopping-list {
+    margin-top: 2.5rem;
+  }
+}
